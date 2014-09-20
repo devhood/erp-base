@@ -1,0 +1,39 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblpricetype
+ *
+ * @ORM\Table(name="tblPriceType", uniqueConstraints={@ORM\UniqueConstraint(name="strPriceType_UNIQUE", columns={"strPriceType"})})
+ * @ORM\Entity
+ */
+class Tblpricetype
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intPriceTypeID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intpricetypeid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strPriceType", type="string", length=45, nullable=false)
+     */
+    private $strpricetype;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActive", type="integer", nullable=true)
+     */
+    private $intactive = '1';
+
+
+}

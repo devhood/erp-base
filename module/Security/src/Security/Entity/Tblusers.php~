@@ -1,0 +1,73 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblusers
+ *
+ * @ORM\Table(name="tblUsers", uniqueConstraints={@ORM\UniqueConstraint(name="username_UNIQUE", columns={"strUsername"}), @ORM\UniqueConstraint(name="user_id_UNIQUE", columns={"intUserID"}), @ORM\UniqueConstraint(name="name_UNIQUE", columns={"strName"}), @ORM\UniqueConstraint(name="email_UNIQUE", columns={"strEmail"})}, indexes={@ORM\Index(name="fk_users_roles_idx", columns={"intRoleID"}), @ORM\Index(name="fk_users_status1_idx", columns={"intUserStatusID"})})
+ * @ORM\Entity
+ */
+class Tblusers
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intUserID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intuserid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strName", type="string", length=45, nullable=true)
+     */
+    private $strname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strEmail", type="string", length=45, nullable=true)
+     */
+    private $stremail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strUsername", type="string", length=45, nullable=false)
+     */
+    private $strusername;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strPassword", type="string", length=45, nullable=false)
+     */
+    private $strpassword;
+
+    /**
+     * @var \Security\Entity\Tblroles
+     *
+     * @ORM\ManyToOne(targetEntity="Security\Entity\Tblroles")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intRoleID", referencedColumnName="intRoleID")
+     * })
+     */
+    private $introleid;
+
+    /**
+     * @var \Security\Entity\Tbluserstatus
+     *
+     * @ORM\ManyToOne(targetEntity="Security\Entity\Tbluserstatus")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intUserStatusID", referencedColumnName="intUserStatusID")
+     * })
+     */
+    private $intuserstatusid;
+
+
+}

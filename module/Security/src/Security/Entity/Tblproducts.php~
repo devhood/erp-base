@@ -1,0 +1,117 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblproducts
+ *
+ * @ORM\Table(name="tblProducts", uniqueConstraints={@ORM\UniqueConstraint(name="strProductCode_UNIQUE", columns={"strProductCode"})}, indexes={@ORM\Index(name="fk_tblProducts_tblProductClassification1_idx", columns={"intProductClassificationID"}), @ORM\Index(name="fk_tblProducts_tblBrands1_idx", columns={"intBrandID"}), @ORM\Index(name="fk_tblProducts_tblSuppliers1_idx", columns={"intSupplierID"}), @ORM\Index(name="fk_tblProducts_tblUOM1_idx", columns={"intUOMID"}), @ORM\Index(name="fk_tblProducts_tblProductStatus1_idx", columns={"intProductStatusID"})})
+ * @ORM\Entity
+ */
+class Tblproducts
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intProductID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intproductid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strProductCode", type="string", length=100, nullable=false)
+     */
+    private $strproductcode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strProductName", type="string", length=250, nullable=true)
+     */
+    private $strproductname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strDescription", type="string", length=250, nullable=true)
+     */
+    private $strdescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strColor", type="string", length=45, nullable=true)
+     */
+    private $strcolor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strSize", type="string", length=45, nullable=true)
+     */
+    private $strsize;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strWeight", type="string", length=45, nullable=true)
+     */
+    private $strweight;
+
+    /**
+     * @var \Security\Entity\Tblbrands
+     *
+     * @ORM\ManyToOne(targetEntity="Security\Entity\Tblbrands")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intBrandID", referencedColumnName="intBrandID")
+     * })
+     */
+    private $intbrandid;
+
+    /**
+     * @var \Security\Entity\Tblproductclassification
+     *
+     * @ORM\ManyToOne(targetEntity="Security\Entity\Tblproductclassification")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intProductClassificationID", referencedColumnName="intProductClassificationID")
+     * })
+     */
+    private $intproductclassificationid;
+
+    /**
+     * @var \Security\Entity\Tblproductstatus
+     *
+     * @ORM\ManyToOne(targetEntity="Security\Entity\Tblproductstatus")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intProductStatusID", referencedColumnName="intProductStatusID")
+     * })
+     */
+    private $intproductstatusid;
+
+    /**
+     * @var \Security\Entity\Tblsuppliers
+     *
+     * @ORM\ManyToOne(targetEntity="Security\Entity\Tblsuppliers")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intSupplierID", referencedColumnName="intSupplierID")
+     * })
+     */
+    private $intsupplierid;
+
+    /**
+     * @var \Security\Entity\Tbluom
+     *
+     * @ORM\ManyToOne(targetEntity="Security\Entity\Tbluom")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intUOMID", referencedColumnName="intUOMID")
+     * })
+     */
+    private $intuomid;
+
+
+}

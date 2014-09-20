@@ -1,0 +1,39 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblcompanytype
+ *
+ * @ORM\Table(name="tblCompanyType", uniqueConstraints={@ORM\UniqueConstraint(name="strCompanyType_UNIQUE", columns={"strCompanyType"})})
+ * @ORM\Entity
+ */
+class Tblcompanytype
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intCompanyTypeID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intcompanytypeid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strCompanyType", type="string", length=45, nullable=false)
+     */
+    private $strcompanytype;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActive", type="integer", nullable=true)
+     */
+    private $intactive = '1';
+
+
+}

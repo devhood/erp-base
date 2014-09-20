@@ -1,0 +1,55 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblsuppliers
+ *
+ * @ORM\Table(name="tblSuppliers", uniqueConstraints={@ORM\UniqueConstraint(name="intCompanyID_UNIQUE", columns={"intCompanyID"})}, indexes={@ORM\Index(name="fk_tblSuppliers_tblSupplierStatus1_idx", columns={"intSupplierStatusID"}), @ORM\Index(name="fk_tblSuppliers_tblPerson1_idx", columns={"intPersonID"})})
+ * @ORM\Entity
+ */
+class Tblsuppliers
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intSupplierID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intsupplierid;
+
+    /**
+     * @var \Security\Entity\Tblcompany
+     *
+     * @ORM\ManyToOne(targetEntity="Security\Entity\Tblcompany")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intCompanyID", referencedColumnName="intCompanyID")
+     * })
+     */
+    private $intcompanyid;
+
+    /**
+     * @var \Security\Entity\Tblperson
+     *
+     * @ORM\ManyToOne(targetEntity="Security\Entity\Tblperson")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intPersonID", referencedColumnName="intPersonID")
+     * })
+     */
+    private $intpersonid;
+
+    /**
+     * @var \Security\Entity\Tblsupplierstatus
+     *
+     * @ORM\ManyToOne(targetEntity="Security\Entity\Tblsupplierstatus")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intSupplierStatusID", referencedColumnName="intSupplierStatusID")
+     * })
+     */
+    private $intsupplierstatusid;
+
+
+}

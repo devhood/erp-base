@@ -1,0 +1,39 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblentitytype
+ *
+ * @ORM\Table(name="tblEntityType")
+ * @ORM\Entity
+ */
+class Tblentitytype
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intEntityTypeID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intentitytypeid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strEntityTypeName", type="string", length=45, nullable=false)
+     */
+    private $strentitytypename;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="intActive", type="string", length=45, nullable=true)
+     */
+    private $intactive = '1';
+
+
+}

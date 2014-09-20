@@ -1,0 +1,46 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblpaymentterms
+ *
+ * @ORM\Table(name="tblPaymentTerms", uniqueConstraints={@ORM\UniqueConstraint(name="strPaymentTermName_UNIQUE", columns={"strPaymentTerm"})})
+ * @ORM\Entity
+ */
+class Tblpaymentterms
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intPaymentTermID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intpaymenttermid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strPaymentTerm", type="string", length=45, nullable=false)
+     */
+    private $strpaymentterm;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intValueInDays", type="integer", nullable=true)
+     */
+    private $intvalueindays;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActive", type="integer", nullable=true)
+     */
+    private $intactive = '1';
+
+
+}

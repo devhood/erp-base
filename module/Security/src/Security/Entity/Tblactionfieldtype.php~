@@ -1,0 +1,41 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblactionfieldtype
+ *
+ * @ORM\Table(name="tblActionFieldType")
+ * @ORM\Entity
+ */
+class Tblactionfieldtype
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActionFieldTypeID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $intactionfieldtypeid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strActionFieldName", type="string", length=45, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $stractionfieldname;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intStatus", type="integer", nullable=true)
+     */
+    private $intstatus = '1';
+
+
+}

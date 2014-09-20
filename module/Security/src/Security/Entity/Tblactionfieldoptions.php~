@@ -1,0 +1,56 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblactionfieldoptions
+ *
+ * @ORM\Table(name="tblActionFieldOptions", indexes={@ORM\Index(name="fk_tblActionFieldOptions_tblObjects1_idx", columns={"intObjectID"}), @ORM\Index(name="fk_tblActionFieldOptions_tblActionFields1_idx", columns={"intActionFieldID"})})
+ * @ORM\Entity
+ */
+class Tblactionfieldoptions
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActionFieldOptionID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $intactionfieldoptionid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intStatus", type="integer", nullable=true)
+     */
+    private $intstatus = '1';
+
+    /**
+     * @var \Security\Entity\Tblactionfields
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Security\Entity\Tblactionfields")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intActionFieldID", referencedColumnName="intActionFieldID")
+     * })
+     */
+    private $intactionfieldid;
+
+    /**
+     * @var \Security\Entity\Tblobjects
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Security\Entity\Tblobjects")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intObjectID", referencedColumnName="intObjectID")
+     * })
+     */
+    private $intobjectid;
+
+
+}

@@ -1,0 +1,39 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblcustomertype
+ *
+ * @ORM\Table(name="tblCustomerType", uniqueConstraints={@ORM\UniqueConstraint(name="intCustomerType_UNIQUE", columns={"strCustomerType"})})
+ * @ORM\Entity
+ */
+class Tblcustomertype
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intCustomerTypeID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intcustomertypeid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strCustomerType", type="string", length=45, nullable=false)
+     */
+    private $strcustomertype;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActive", type="integer", nullable=true)
+     */
+    private $intactive = '1';
+
+
+}

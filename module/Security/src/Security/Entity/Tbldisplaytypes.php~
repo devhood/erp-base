@@ -1,0 +1,39 @@
+<?php
+
+namespace Security\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tbldisplaytypes
+ *
+ * @ORM\Table(name="tblDisplayTypes")
+ * @ORM\Entity
+ */
+class Tbldisplaytypes
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intDisplayTypeID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intdisplaytypeid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strDisplayType", type="string", length=45, nullable=true)
+     */
+    private $strdisplaytype;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intStatus", type="integer", nullable=true)
+     */
+    private $intstatus = '1';
+
+
+}
