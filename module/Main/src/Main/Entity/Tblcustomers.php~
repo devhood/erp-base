@@ -1,0 +1,119 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblcustomers
+ *
+ * @ORM\Table(name="tblCustomers", indexes={@ORM\Index(name="fk_tblCustomers_tblCustomerType1_idx", columns={"intCustomerTypeID"}), @ORM\Index(name="fk_tblCustomers_tblCustomerCategory1_idx", columns={"intCustomerCategoryID"}), @ORM\Index(name="fk_tblCustomers_tblPerson2_idx", columns={"intOwnerID"}), @ORM\Index(name="fk_tblCustomers_tblPerson3_idx", columns={"intContactID"}), @ORM\Index(name="fk_tblCustomers_tblCustomerStatus1_idx", columns={"intCustomerStatusID"}), @ORM\Index(name="fk_tblCustomers_tblUsers1_idx", columns={"intSalesExecutiveID"}), @ORM\Index(name="fk_tblCustomers_tblPerson1_idx", columns={"intPersonID"}), @ORM\Index(name="fk_tblCustomers_tblCompany1", columns={"intCompanyID"})})
+ * @ORM\Entity
+ */
+class Tblcustomers
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intCustomerID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intcustomerid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intUnpaidInvoiceAllowed", type="integer", nullable=true)
+     */
+    private $intunpaidinvoiceallowed;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="fltCreditLimit", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $fltcreditlimit;
+
+    /**
+     * @var \Main\Entity\Tblcompany
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblcompany")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intCompanyID", referencedColumnName="intCompanyID")
+     * })
+     */
+    private $intcompanyid;
+
+    /**
+     * @var \Main\Entity\Tblcustomercategory
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblcustomercategory")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intCustomerCategoryID", referencedColumnName="intCustomerCategoryID")
+     * })
+     */
+    private $intcustomercategoryid;
+
+    /**
+     * @var \Main\Entity\Tblcustomerstatus
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblcustomerstatus")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intCustomerStatusID", referencedColumnName="intCustomerStatusID")
+     * })
+     */
+    private $intcustomerstatusid;
+
+    /**
+     * @var \Main\Entity\Tblcustomertype
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblcustomertype")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intCustomerTypeID", referencedColumnName="intCustomerTypeID")
+     * })
+     */
+    private $intcustomertypeid;
+
+    /**
+     * @var \Main\Entity\Tblperson
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblperson")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intPersonID", referencedColumnName="intPersonID")
+     * })
+     */
+    private $intpersonid;
+
+    /**
+     * @var \Main\Entity\Tblperson
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblperson")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intOwnerID", referencedColumnName="intPersonID")
+     * })
+     */
+    private $intownerid;
+
+    /**
+     * @var \Main\Entity\Tblperson
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblperson")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intContactID", referencedColumnName="intPersonID")
+     * })
+     */
+    private $intcontactid;
+
+    /**
+     * @var \Main\Entity\Tblusers
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblusers")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intSalesExecutiveID", referencedColumnName="intUserID")
+     * })
+     */
+    private $intsalesexecutiveid;
+
+
+}

@@ -1,0 +1,45 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblcustomerterms
+ *
+ * @ORM\Table(name="tblCustomerTerms", indexes={@ORM\Index(name="fk_tblCustomerTerms_tblPaymentTerms1_idx", columns={"intPaymentTermID"}), @ORM\Index(name="fk_tblCustomerTerms_tblCustomers1_idx", columns={"intCustomerID"})})
+ * @ORM\Entity
+ */
+class Tblcustomerterms
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intCustomerTermID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intcustomertermid;
+
+    /**
+     * @var \Main\Entity\Tblcustomers
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblcustomers")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intCustomerID", referencedColumnName="intCustomerID")
+     * })
+     */
+    private $intcustomerid;
+
+    /**
+     * @var \Main\Entity\Tblpaymentterms
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblpaymentterms")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intPaymentTermID", referencedColumnName="intPaymentTermID")
+     * })
+     */
+    private $intpaymenttermid;
+
+
+}

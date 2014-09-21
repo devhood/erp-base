@@ -1,0 +1,45 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblrolepermissions
+ *
+ * @ORM\Table(name="tblRolePermissions", indexes={@ORM\Index(name="fk_tblRolePermissions_roles1_idx", columns={"intRoleID"}), @ORM\Index(name="fk_tblRolePermissions_tblPermissions1_idx", columns={"intPermissionID"})})
+ * @ORM\Entity
+ */
+class Tblrolepermissions
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intRolePermissionID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $introlepermissionid;
+
+    /**
+     * @var \Main\Entity\Tblroles
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblroles")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intRoleID", referencedColumnName="intRoleID")
+     * })
+     */
+    private $introleid;
+
+    /**
+     * @var \Main\Entity\Tblpermissions
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblpermissions")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intPermissionID", referencedColumnName="intPermissionID")
+     * })
+     */
+    private $intpermissionid;
+
+
+}

@@ -1,0 +1,39 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tbluom
+ *
+ * @ORM\Table(name="tblUOM", uniqueConstraints={@ORM\UniqueConstraint(name="strUOM_UNIQUE", columns={"strUOM"})})
+ * @ORM\Entity
+ */
+class Tbluom
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intUOMID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intuomid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strUOM", type="string", length=45, nullable=false)
+     */
+    private $struom;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActive", type="integer", nullable=true)
+     */
+    private $intactive = '1';
+
+
+}

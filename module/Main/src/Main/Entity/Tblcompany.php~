@@ -1,0 +1,77 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblcompany
+ *
+ * @ORM\Table(name="tblCompany", indexes={@ORM\Index(name="fk_tblCompany_tblCompanyType1_idx", columns={"intCompanyTypeID"})})
+ * @ORM\Entity
+ */
+class Tblcompany
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intCompanyID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intcompanyid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intCompanyCategoryID", type="integer", nullable=true)
+     */
+    private $intcompanycategoryid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strCompanyName", type="string", length=45, nullable=true)
+     */
+    private $strcompanyname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strTradeName", type="string", length=45, nullable=true)
+     */
+    private $strtradename;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strWebsite", type="string", length=45, nullable=true)
+     */
+    private $strwebsite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="intCompanyStatusID", type="string", length=45, nullable=true)
+     */
+    private $intcompanystatusid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strTIN", type="string", length=45, nullable=true)
+     */
+    private $strtin;
+
+    /**
+     * @var \Main\Entity\Tblcompanytype
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblcompanytype")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intCompanyTypeID", referencedColumnName="intCompanyTypeID")
+     * })
+     */
+    private $intcompanytypeid;
+
+
+}

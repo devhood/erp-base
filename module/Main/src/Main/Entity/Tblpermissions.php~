@@ -1,0 +1,46 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblpermissions
+ *
+ * @ORM\Table(name="tblPermissions")
+ * @ORM\Entity
+ */
+class Tblpermissions
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intPermissionID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intpermissionid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strModule", type="string", length=45, nullable=true)
+     */
+    private $strmodule;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strController", type="string", length=45, nullable=true)
+     */
+    private $strcontroller;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strAction", type="string", length=45, nullable=true)
+     */
+    private $straction;
+
+
+}

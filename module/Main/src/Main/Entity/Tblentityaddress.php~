@@ -1,0 +1,86 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblentityaddress
+ *
+ * @ORM\Table(name="tblEntityAddress", indexes={@ORM\Index(name="fk_tblEntityAddress_tblAddressType1_idx", columns={"intAddressTypeID"}), @ORM\Index(name="fk_tblEntityAddress_tblCity1_idx", columns={"intCityID"}), @ORM\Index(name="fk_tblEntityAddress_tblCompany1_idx", columns={"intCompanyID"}), @ORM\Index(name="fk_tblEntityAddress_tblPerson1_idx", columns={"intPersonID"})})
+ * @ORM\Entity
+ */
+class Tblentityaddress
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intlEntityAddressID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intlentityaddressid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strAddress", type="string", length=45, nullable=false)
+     */
+    private $straddress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strZipCode", type="string", length=45, nullable=true)
+     */
+    private $strzipcode;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intStatus", type="integer", nullable=true)
+     */
+    private $intstatus = '1';
+
+    /**
+     * @var \Main\Entity\Tbladdresstype
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tbladdresstype")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intAddressTypeID", referencedColumnName="intAddressTypeID")
+     * })
+     */
+    private $intaddresstypeid;
+
+    /**
+     * @var \Main\Entity\Tblcity
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblcity")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intCityID", referencedColumnName="intCityID")
+     * })
+     */
+    private $intcityid;
+
+    /**
+     * @var \Main\Entity\Tblcompany
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblcompany")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intCompanyID", referencedColumnName="intCompanyID")
+     * })
+     */
+    private $intcompanyid;
+
+    /**
+     * @var \Main\Entity\Tblperson
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblperson")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intPersonID", referencedColumnName="intPersonID")
+     * })
+     */
+    private $intpersonid;
+
+
+}

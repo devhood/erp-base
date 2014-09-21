@@ -1,0 +1,94 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblactionfields
+ *
+ * @ORM\Table(name="tblActionFields", indexes={@ORM\Index(name="fk_tblActionFields_tblAttributes1_idx", columns={"intAttributeID"}), @ORM\Index(name="fk_tblActionFields_tblActions1_idx", columns={"intActionID"}), @ORM\Index(name="fk_tblActionFields_tblDisplayTypes1_idx", columns={"intDisplayTypeID"}), @ORM\Index(name="fk_tblActionFields_tblActionFieldType1_idx", columns={"intActionFieldTypeID"})})
+ * @ORM\Entity
+ */
+class Tblactionfields
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActionFieldID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $intactionfieldid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intOrder", type="integer", nullable=true)
+     */
+    private $intorder;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intGroup", type="integer", nullable=true)
+     */
+    private $intgroup;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intStatus", type="integer", nullable=true)
+     */
+    private $intstatus = '1';
+
+    /**
+     * @var \Main\Entity\Tblactionfieldtype
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Main\Entity\Tblactionfieldtype")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intActionFieldTypeID", referencedColumnName="intActionFieldTypeID")
+     * })
+     */
+    private $intactionfieldtypeid;
+
+    /**
+     * @var \Main\Entity\Tblactions
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Main\Entity\Tblactions")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intActionID", referencedColumnName="intActionID")
+     * })
+     */
+    private $intactionid;
+
+    /**
+     * @var \Main\Entity\Tblattributes
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Main\Entity\Tblattributes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intAttributeID", referencedColumnName="intAttributeID")
+     * })
+     */
+    private $intattributeid;
+
+    /**
+     * @var \Main\Entity\Tbldisplaytypes
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Main\Entity\Tbldisplaytypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intDisplayTypeID", referencedColumnName="intDisplayTypeID")
+     * })
+     */
+    private $intdisplaytypeid;
+
+
+}

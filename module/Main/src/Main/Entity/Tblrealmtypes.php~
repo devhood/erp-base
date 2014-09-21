@@ -1,0 +1,39 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblrealmtypes
+ *
+ * @ORM\Table(name="tblRealmTypes")
+ * @ORM\Entity
+ */
+class Tblrealmtypes
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intRealmTypeID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intrealmtypeid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strRealmType", type="string", length=45, nullable=true)
+     */
+    private $strrealmtype;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intStatus", type="integer", nullable=true)
+     */
+    private $intstatus = '1';
+
+
+}

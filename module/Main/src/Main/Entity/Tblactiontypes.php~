@@ -1,0 +1,39 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblactiontypes
+ *
+ * @ORM\Table(name="tblActionTypes")
+ * @ORM\Entity
+ */
+class Tblactiontypes
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActionTypeID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intactiontypeid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="intActionTypeName", type="string", length=45, nullable=true)
+     */
+    private $intactiontypename;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intStatus", type="integer", nullable=true)
+     */
+    private $intstatus;
+
+
+}

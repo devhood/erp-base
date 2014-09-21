@@ -1,0 +1,46 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblobjects
+ *
+ * @ORM\Table(name="tblObjects")
+ * @ORM\Entity
+ */
+class Tblobjects
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intObjectID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intobjectid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strObjectName", type="string", length=45, nullable=true)
+     */
+    private $strobjectname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strObjectLabel", type="string", length=45, nullable=true)
+     */
+    private $strobjectlabel;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intStatus", type="integer", nullable=true)
+     */
+    private $intstatus = '1';
+
+
+}

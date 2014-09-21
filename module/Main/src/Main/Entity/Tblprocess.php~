@@ -1,0 +1,51 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblprocess
+ *
+ * @ORM\Table(name="tblProcess", indexes={@ORM\Index(name="fk_tblProcess_tblModules1_idx", columns={"intModuleID"})})
+ * @ORM\Entity
+ */
+class Tblprocess
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intProcessID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $intprocessid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="intProcessName", type="string", length=45, nullable=false)
+     */
+    private $intprocessname;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intStatus", type="integer", nullable=true)
+     */
+    private $intstatus;
+
+    /**
+     * @var \Main\Entity\Tblmodules
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Main\Entity\Tblmodules")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intModuleID", referencedColumnName="intModuleID")
+     * })
+     */
+    private $intmoduleid;
+
+
+}

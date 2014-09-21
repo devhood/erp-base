@@ -1,0 +1,42 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblproductcategory
+ *
+ * @ORM\Table(name="tblProductCategory", indexes={@ORM\Index(name="fk_tblProductCategory_tblProducts1_idx", columns={"intProductID"})})
+ * @ORM\Entity
+ */
+class Tblproductcategory
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intCategoryID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intcategoryid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strCategoryName", type="string", length=45, nullable=false)
+     */
+    private $strcategoryname;
+
+    /**
+     * @var \Main\Entity\Tblproducts
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblproducts")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intProductID", referencedColumnName="intProductID")
+     * })
+     */
+    private $intproductid;
+
+
+}

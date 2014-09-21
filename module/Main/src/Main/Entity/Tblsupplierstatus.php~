@@ -1,0 +1,39 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblsupplierstatus
+ *
+ * @ORM\Table(name="tblSupplierStatus", uniqueConstraints={@ORM\UniqueConstraint(name="strSupplierStatus_UNIQUE", columns={"strSupplierStatus"})})
+ * @ORM\Entity
+ */
+class Tblsupplierstatus
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intSupplierStatusID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intsupplierstatusid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strSupplierStatus", type="string", length=45, nullable=false)
+     */
+    private $strsupplierstatus;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActive", type="integer", nullable=true)
+     */
+    private $intactive = '1';
+
+
+}

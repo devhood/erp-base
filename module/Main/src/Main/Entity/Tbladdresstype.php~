@@ -1,0 +1,39 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tbladdresstype
+ *
+ * @ORM\Table(name="tblAddressType")
+ * @ORM\Entity
+ */
+class Tbladdresstype
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intAddressTypeID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intaddresstypeid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strAddressType", type="string", length=45, nullable=true)
+     */
+    private $straddresstype;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intActive", type="integer", nullable=true)
+     */
+    private $intactive = '1';
+
+
+}

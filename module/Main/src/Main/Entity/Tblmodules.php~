@@ -1,0 +1,49 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tblmodules
+ *
+ * @ORM\Table(name="tblModules", indexes={@ORM\Index(name="fk_tblModules_tblRealms1_idx", columns={"intRealmID"})})
+ * @ORM\Entity
+ */
+class Tblmodules
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intModuleID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intmoduleid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strModuleName", type="string", length=45, nullable=true)
+     */
+    private $strmodulename;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intStatus", type="integer", nullable=true)
+     */
+    private $intstatus;
+
+    /**
+     * @var \Main\Entity\Tblrealms
+     *
+     * @ORM\ManyToOne(targetEntity="Main\Entity\Tblrealms")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="intRealmID", referencedColumnName="intRealmID")
+     * })
+     */
+    private $intrealmid;
+
+
+}

@@ -1,0 +1,39 @@
+<?php
+
+namespace Main\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tbluserstatus
+ *
+ * @ORM\Table(name="tblUserStatus")
+ * @ORM\Entity
+ */
+class Tbluserstatus
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="intUserStatusID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $intuserstatusid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strCategory", type="string", length=45, nullable=false)
+     */
+    private $strcategory;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="strStatus", type="string", length=45, nullable=false)
+     */
+    private $strstatus;
+
+
+}
